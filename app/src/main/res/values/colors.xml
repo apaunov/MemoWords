@@ -1,0 +1,36 @@
+<resources>
+    <!-- Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="semi_white">#80FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="light_gray">#BEBEBE</color>
+
+    <!--Transparent colors (prepend any of these values to the hex color to get opacity)-->
+    <!--100% — FF-->
+    <!--95% — F2-->
+    <!--90% — E6-->
+    <!--85% — D9-->
+    <!--80% — CC-->
+    <!--75% — BF-->
+    <!--70% — B3-->
+    <!--65% — A6-->
+    <!--60% — 99-->
+    <!--55% — 8C-->
+    <!--50% — 80-->
+    <!--45% — 73-->
+    <!--40% — 66-->
+    <!--35% — 59-->
+    <!--30% — 4D-->
+    <!--25% — 40-->
+    <!--20% — 33-->
+    <!--15% — 26-->
+    <!--10% — 1A-->
+    <!--5% — 0D-->
+    <!--0% — 00-->
+    <color name="transparent">#33000000</color>
+
+    <!--Theme colors-->
+    <color name="primary">#FFC107</color>
+    <color name="primary_dark">#FF9800</color>
+    <color name="accent">#00E5FF</color>
+</resources>

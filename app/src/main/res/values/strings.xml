@@ -1,0 +1,84 @@
+<resources>
+
+    <!--All other strings-->
+    <string name="edit_screen">Edit Word</string>
+    <string name="view_screen">View Word</string>
+    <string name="definition">Recently entered words:</string>
+    <string name="enter_word">Word</string>
+    <string name="enter_part_of_speech">Part of Speech</string>
+    <string name="enter_transcription">Transcription</string>
+    <string name="enter_definition">Definition</string>
+    <string name="word_settings">Word Settings</string>
+    <string name="word_learned">Word learned</string>
+    <string name="no_results">No words to learn yet!\nTap the + button to\nadd a new word.</string>
+    <string name="delete">Delete</string>
+    <string name="deleteAll">Delete all</string>
+    <string name="noun">Noun</string>
+    <string name="pronoun">Pronoun</string>
+    <string name="verb">Verb</string>
+    <string name="adjective">Adjective</string>
+    <string name="adverb">Adverb</string>
+    <string name="preposition">Preposition</string>
+    <string name="conjunction">Conjunction</string>
+    <string name="interjection">Interjection</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="open_drawer">Open drawer</string>
+    <string name="close_drawer">Close drawer</string>
+
+    <!--Context menu items-->
+    <string name="action_mode_word_title">%1$s selected</string>
+    <string name="action_mode_word_option_delete">Delete</string>
+    <string name="action_mode_word_option_done">Done</string>
+
+    <!--Navigation drawer items-->
+    <string-array name="navigation_drawer_array_strings">
+        <item>@string/settings</item>
+        <item>@string/about</item>
+    </string-array>
+
+    <!--Widget settings-->
+    <string name="widget_label">VocabWise Widget</string>
+    <string name="widget_all_words_learned_label">You have no new words to learn.</string>
+
+    <!--Part of speech string array-->
+    <string-array name="part_of_speech_array">
+        <item>@string/enter_part_of_speech</item>
+        <item>@string/noun</item>
+        <item>@string/pronoun</item>
+        <item>@string/verb</item>
+        <item>@string/adjective</item>
+        <item>@string/adverb</item>
+        <item>@string/preposition</item>
+        <item>@string/conjunction</item>
+        <item>@string/interjection</item>
+    </string-array>
+
+    <!--Titles-->
+    <string name="app_name">VocabWise</string>
+    <string name="label_activity_settings">Settings</string>
+    <string name="label_activity_about">About</string>
+
+    <!-- General settings -->
+    <string name="pref_header_general">General</string>
+    <string name="pref_title_send_usage_statistics">Anonymous Usage Statistics</string>
+    <string name="pref_description_send_usage_statistics">Improve performance and features by sharing anonymous usage data</string>
+
+    <!--About page-->
+    <string name="app_version">Version</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="license">License</string>
+    <string name="license_info">Copyright \u00A9 2016 Andrey Paunov\n\nLicensed under the Apache License, Version 2.0 (the "License");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n\t\t<a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an "AS IS" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n</string>
+
+    <!--Privacy Policy Link-->
+    <string name="accept_privacy_policy">ACCEPT</string>
+    <string name="decline_privacy_policy">DECLINE</string>
+    <string name="privacy_policy_link">https://docs.google.com/document/d/1XlIypB_K_k3czQRbGqSikcDsEW5ZVclsDo2RlLAcypg/pub</string>
+
+    <!--Setup Screen-->
+    <string name="next_slide">NEXT</string>
+    <string name="back_slide">BACK</string>
+    <string name="accept_slide">ACCEPT</string>
+    <string name="accept_privacy_policy_statement">I have read and accept to the <a href="https://docs.google.com/document/d/1XlIypB_K_k3czQRbGqSikcDsEW5ZVclsDo2RlLAcypg/pub">privacy policy</a></string>
+
+</resources>

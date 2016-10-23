@@ -1,0 +1,35 @@
+<resources>
+
+    <!-- Base application theme -->
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <style name="AppTheme" parent="AppTheme.Base"/>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="ToolbarPopUpTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorControlHighlight">@color/accent</item>
+    </style>
+
+    <style name="ScreenSlideButtonTheme" parent="AppTheme">
+        <item name="colorControlHighlight">@color/accent</item>
+    </style>
+
+    <style name="OtherActivitiesTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorControlHighlight">@color/accent</item>
+    </style>
+
+    <style name="SettingsTheme" parent="OtherActivitiesTheme"/>
+
+    <style name="AboutTheme" parent="OtherActivitiesTheme"/>
+
+    <style name="PrivacyPolicyTheme" parent="OtherActivitiesTheme"/>
+
+</resources>

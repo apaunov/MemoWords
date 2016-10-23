@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--minWidth and minHeight are the default size for the widget-->
+<!--minResizeWidth and minResizeHeight specify the size below which the widget would be illegible or otherwise unusable-->
+<appwidget-provider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialLayout="@layout/widget"
+    android:minHeight="110dp"
+    android:minWidth="250dp"
+    android:previewImage="@drawable/vocab_wise_widget_preview"
+    android:resizeMode="horizontal|vertical"
+    android:updatePeriodMillis="0">
+
+</appwidget-provider>
