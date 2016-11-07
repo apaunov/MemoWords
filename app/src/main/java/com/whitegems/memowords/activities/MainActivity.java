@@ -44,13 +44,14 @@ public class MainActivity extends AppCompatActivity implements ListWordFragment.
 
     public static final String EXTRA_PARAM_WORD_POSITION = "WORD_POSITION";
     private static final String CURRENT_FRAGMENT_TAG = "CURRENT_FRAGMENT_TAG";
-    private static final String TAG = "TAG";
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     // Firebase analytics
     private static FirebaseAnalytics firebaseAnalytics;
 
     // Firebase authentication
     private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener firebaseAuthStateListener; // Recommended way to manage the Firebase authentication
 
     // Other private variables
     private FragmentManager fragmentManager;
@@ -61,15 +62,10 @@ public class MainActivity extends AppCompatActivity implements ListWordFragment.
     private WordDataContainer wordDataContainer;
     private boolean showNavigationAnimation;
 
-    // HELPER METHODS
+    // Static methods
     public static FirebaseAnalytics getFirebaseAnalytics()
     {
         return firebaseAnalytics;
-    }
-
-    public static void setFirebaseAnalytics(FirebaseAnalytics firebaseAnalytics)
-    {
-        MainActivity.firebaseAnalytics = firebaseAnalytics;
     }
 
     @Override
@@ -78,32 +74,41 @@ public class MainActivity extends AppCompatActivity implements ListWordFragment.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        if (!sharedPreferences.getBoolean(hasAcceptedTerms, false))
-//        {
-//            startActivity(new Intent(MainActivity.this, ScreenSlidePagerActivity.class));
-//            finish();
-//            return;
-//        }
-//        else
-//        {
+        SharedPreferences sharedPreferences = getSharedPreferences(VOCABWISE_PREFERENCES, 0);
 
-//        }
+        if (!sharedPreferences.getBoolean(hasAcceptedTerms, false))
+        {
+            startActivity(new Intent(MainActivity.this, ScreenSlidePagerActivity.class));
+            finish();
+            return;
+        }
+        else
+        {
+
+        }
 
         // Obtain the FirebaseAnalytics instance
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         // Initialize the FirebaseAuth
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuthStateListener = new FirebaseAuth.AuthStateListener()
+        {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
+            {
+                if (isUserLoggedIn())
+                {
+                    // Already signed in
 
-        if (firebaseAuth.getCurrentUser() != null)
-        {
-            // Already signed in
-        }
-        else
-        {
-            // Not signed in
-            startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().build(), RC_SIGN_IN);
-        }
+                }
+                else
+                {
+                    // Not signed in
+                    loginUser();
+                }
+            }
+        };
 
         wordDataContainer = WordDataContainer.getInstance();
 
@@ -216,8 +221,6 @@ public class MainActivity extends AppCompatActivity implements ListWordFragment.
             fragmentManager.beginTransaction().add(R.id.fragment_container, currentFragment, CURRENT_FRAGMENT_TAG).commit();
         }
 
-        SharedPreferences sharedPreferences = getSharedPreferences(VOCABWISE_PREFERENCES, 0);
-
         if (!sharedPreferences.getBoolean(hasAcceptedTerms, false))
         {
             PrivacyPolicyInfoDialogFragment privacyPolicyInfoDialogFragment = new PrivacyPolicyInfoDialogFragment();
@@ -251,12 +254,18 @@ public class MainActivity extends AppCompatActivity implements ListWordFragment.
     protected void onStart()
     {
         super.onStart();
+        firebaseAuth.addAuthStateListener(firebaseAuthStateListener);
     }
 
     @Override
     protected void onStop()
     {
         super.onStop();
+
+        if (firebaseAuthStateListener != null)
+        {
+            firebaseAuth.removeAuthStateListener(firebaseAuthStateListener);
+        }
     }
 
     @Override
@@ -358,6 +367,12 @@ public class MainActivity extends AppCompatActivity implements ListWordFragment.
         return true;
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
     private void navigationAnimation(float start, float end, long duration)
     {
         // The following code was obtained from:
@@ -381,5 +396,15 @@ public class MainActivity extends AppCompatActivity implements ListWordFragment.
             anim.setDuration(duration);
             anim.start();
         }
+    }
+
+    private boolean isUserLoggedIn()
+    {
+        return firebaseAuth.getCurrentUser() != null;
+    }
+
+    private void loginUser()
+    {
+        startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().build(), RC_SIGN_IN);
     }
 }
